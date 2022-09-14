@@ -9,6 +9,9 @@ gem 'rails', '~> 7.0.4'
 # For windows/linux compatibility
 gem 'ffi'
 
+# Load environment variables
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
