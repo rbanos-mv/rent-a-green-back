@@ -12,6 +12,15 @@ gem 'ffi'
 # Load environment variables
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+# Authentication
+gem 'devise', '>= 4.0', '< 5.0'
+
+# JWT authentication for devise
+gem 'devise-jwt'
+
+# Authorization
+gem 'cancancan', '>= 3.0', '< 4.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
