@@ -1,0 +1,18 @@
+
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{ "user": { "email": "myemail@email.com", "password": "mypassword" } }
+
+###
+POST http://localhost:3001/users/sign_in
+Content-Type: application/json
+
+{ "user": { "email": "myemail@email.com", "password": "mypassword" } }
+
+###
+DELETE http://localhost:3001/users/sign_out
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMjczNTI4LCJleHAiOjE2NjQ1Njk1MjgsImp0aSI6ImY3YzBiZWRhLTZjYjAtNDg0Ni1iNTM4LTFkYmRiY2RjNjcxNSJ9.KmAnPILuOik5Ruh1SttZtB_8EiEqd7mrYHu4Whp3mZc
+
+###
