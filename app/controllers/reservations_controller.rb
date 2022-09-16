@@ -1,13 +1,15 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     myhash = params.require(:reservation).permit(:city, :date, :item)
     myitem = Item.where(name: myhash['item']).first
     new_reserv = Reservation.new(city: myhash['city'], date: myhash['date'], item: myitem)
     new_reserv.user = current_user
     if new_reserv.save
-      render json: { message: 'Reservation created successfully!' }
+      render json: new_reserv, status: :created
     else
-      render json: { message: 'Reservation is not valid.' }
+      render json: @item.errors, status: :unprocessable_entity
     end
   end
 
@@ -16,3 +18,4 @@ class ReservationsController < ApplicationController
     render json: @reservations
   end
 end
+
