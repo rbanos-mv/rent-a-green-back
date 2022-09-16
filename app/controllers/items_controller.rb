@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create toggle_active]
+  before_action :authenticate_user!, only: [:create, :toggle_active]
 
   def index
     @items = Item.all
@@ -34,10 +34,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
 
   def item_params
     params.require(:item).permit(:name, :photo, :description, :range)
