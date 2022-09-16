@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
   def create
     myhash = params.require(:reservation).permit(:city, :date, :item)
-    myitem = Item.where(name = myhash.item)
-    new_reserv = Reservation.new(city: myhash.city, date: myhash.date, item: myitem)
+    myitem = Item.where(name: myhash['item']).first
+    new_reserv = Reservation.new(city: myhash['city'], date: myhash['date'], item: myitem)
     new_reserv.user = current_user
     if new_reserv.save
       render json: { message: "Reservation created successfully!" }
