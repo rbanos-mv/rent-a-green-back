@@ -12,7 +12,7 @@ RSpec.describe Item, type: :model do
   end
 
   it 'New Item is not valid without unique name' do
-    new_item = Item.create(name: 'Item 1', description: 'Description 1', photo: 'Photo 1', range: 'Range 1')
+    Item.create(name: 'Item 1', description: 'Description 1', photo: 'Photo 1', range: 'Range 1')
     other_item = Item.new(name: 'Item 1', description: 'Description 1', photo: 'Photo 1', range: 'Range 1')
     expect(other_item).to_not be_valid
   end
@@ -31,5 +31,4 @@ RSpec.describe Item, type: :model do
     new_item = Item.new(name: 'Item 1', description: 'Description 1', photo: 'Photo 1')
     expect(new_item).to_not be_valid
   end
-
 end
