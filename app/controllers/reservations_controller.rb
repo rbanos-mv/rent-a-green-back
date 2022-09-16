@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     myhash = params.require(:reservation).permit(:city, :date, :item)
     myitem = Item.where(name: myhash['item']).first
@@ -18,4 +18,3 @@ class ReservationsController < ApplicationController
     render json: @reservations
   end
 end
-

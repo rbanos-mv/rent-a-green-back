@@ -3,7 +3,7 @@ require_relative '../shared_file'
 
 RSpec.describe 'Reservations Create', type: :request do
   include_context 'common_context'
-  
+
   describe 'POST reservations_path' do
     it 'Reservations create: returns http status :success' do
       post reservations_path, params: {
