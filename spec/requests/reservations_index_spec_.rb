@@ -4,7 +4,6 @@ require_relative '../shared_file'
 RSpec.describe 'Reservations Index', type: :request do
   include_context 'common_context'
   describe 'GET reservations_path' do
-    
     it 'Reservations index: returns http status :success' do
       get reservations_path
       expect(response).to have_http_status(:success)
@@ -12,7 +11,7 @@ RSpec.describe 'Reservations Index', type: :request do
 
     it 'Reservations index: returns 2 reservations' do
       get reservations_path
-      response_json= JSON.parse(response.body)
+      response_json = JSON.parse(response.body)
       expect(response_json.length).to eq(2)
     end
   end

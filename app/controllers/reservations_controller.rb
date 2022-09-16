@@ -5,13 +5,12 @@ class ReservationsController < ApplicationController
     new_reserv = Reservation.new(city: myhash['city'], date: myhash['date'], item: myitem)
     new_reserv.user = current_user
     if new_reserv.save
-      render json: { message: "Reservation created successfully!" }
+      render json: { message: 'Reservation created successfully!' }
     else
-      render json: { message: "Reservation is not valid." }
+      render json: { message: 'Reservation is not valid.' }
     end
-
   end
-  
+
   def index
     @reservations = current_user.reservations
     render json: @reservations
