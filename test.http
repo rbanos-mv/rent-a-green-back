@@ -13,6 +13,17 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3001/users/sign_out
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMjczNTI4LCJleHAiOjE2NjQ1Njk1MjgsImp0aSI6ImY3YzBiZWRhLTZjYjAtNDg0Ni1iNTM4LTFkYmRiY2RjNjcxNSJ9.KmAnPILuOik5Ruh1SttZtB_8EiEqd7mrYHu4Whp3mZc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzQ3MzExLCJleHAiOjE2NjQ2NDMzMTEsImp0aSI6ImQwYjgzMWM4LWQ5ZGItNGMzMi05Y2FhLWMyMzRkZTAwY2NlYiJ9.-jHKXqM80ewvTLGoRGTDHuuoVzKsS2kG71nMZlIAxEk
+###
 
+###
+POST http://localhost:3001/items
+Content-Type: application/json
+
+{ "name": "Item Y", "description": "Description Y", "photo": "Photo Y", "range": "Range Y" }
+###
+
+###
+GET http://localhost:3001/items
+Content-Type: application/json
 ###
