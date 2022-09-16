@@ -11,4 +11,8 @@ Rails.application.routes.draw do
                sessions: 'users/sessions',
                registrations: 'users/registrations'
              }
+
+  get '/users/current', to: 'users#current'
+  resources :items, only: %i[create destroy index show]
+  resources :reservations, only: %i[create index show]
 end
