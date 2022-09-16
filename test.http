@@ -27,3 +27,8 @@ Content-Type: application/json
 GET http://localhost:3001/items
 Content-Type: application/json
 ###
+
+###
+POST http://localhost:3001/items/1/toggle_active
+Content-Type: application/json
+###

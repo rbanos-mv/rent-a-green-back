@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get '/users/current', to: 'users#current'
   resources :items, only: [:index, :show, :create]
   resources :reservations, only: %i[create index show]
+
+  post '/items/:id/toggle_active', to: 'items#toggle_active'
+  
 end

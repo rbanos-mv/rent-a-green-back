@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @item.toggle!(:active)
 
     if @item.save
-      render json: @item, status: :updated
+      render json: @item, status: :accepted
     else
       render json: @item.errors, status: :unprocessable_entity
     end
