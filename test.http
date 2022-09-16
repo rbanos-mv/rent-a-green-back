@@ -2,7 +2,7 @@
 POST http://localhost:3001/users
 Content-Type: application/json
 
-{ "user": { "email": "myemail@email.com", "password": "mypassword" } }
+{ "user": { "name": "Aldo", "email": "myemail@email.com", "password": "mypassword" } }
 
 ###
 POST http://localhost:3001/users/sign_in
@@ -43,13 +43,13 @@ Content-Type: application/json
 
 GET http://localhost:3001/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzU3NzY2LCJleHAiOjE2NjQ2NTM3NjYsImp0aSI6IjU4ZGQ2NTAyLTdlOGUtNDk4Mi04MGRhLWFmYjNmNmEwN2UxYSJ9.RrH_SLOlA-YqEzq_VYyuIBMjt9d9etwbxI6znoz1Qe8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzYzNjc0LCJleHAiOjE2NjQ2NTk2NzQsImp0aSI6IjQ4ZmQ4MzBmLTU4YzgtNDE4NC04OWI0LWI0MmUyODJhM2Y0ZiJ9.VM3x7iVgR2LDH6cdYlcK5yrcynKK3gCwm4Y5FuIeNXo
 
 ###
 
 POST http://localhost:3001/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzMxNjgwLCJleHAiOjE2NjQ2Mjc2ODAsImp0aSI6IjdkODVkZWI3LWQ5ZWItNGE1NC1hNmUxLWMyZGViODQ0ODBiMSJ9.s7ag6jE4u8v7OCgKlpUz-PT4muvmdQuK6Nuo8K37QS0
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzYzNjc0LCJleHAiOjE2NjQ2NTk2NzQsImp0aSI6IjQ4ZmQ4MzBmLTU4YzgtNDE4NC04OWI0LWI0MmUyODJhM2Y0ZiJ9.VM3x7iVgR2LDH6cdYlcK5yrcynKK3gCwm4Y5FuIeNXo
 
 { "reservation": { "city": "Los Angeles", "date": "2023/03/30", "item": "BMW i4" } }
 
