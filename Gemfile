@@ -74,6 +74,6 @@ group :test do
   gem 'simplecov', require: false
 
   # Integration testing tools
-  gem "capybara"
-  gem "webdrivers"
+  gem 'capybara'
+  gem 'webdrivers'
 end
