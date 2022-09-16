@@ -26,7 +26,6 @@ RSpec.describe 'Items Controller', type: :request do
       element = Item.first
       get item_path(element.id)
       response_json = JSON.parse(response.body)
-      p response_json
       expect(response_json).to include('name' => element.name)
     end
 
@@ -39,9 +38,9 @@ RSpec.describe 'Items Controller', type: :request do
     end
 
     it 'creates a new item' do
-      post items_path,
-           params: { item: { name: 'TESLA', photo: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tesla-model-s-2017-1600-09-1600864651.jpg',
-                             range: 600 } }.to_json, headers: headers
+      post items_path, params: { item: { name: 'TESLA', photo: 'https://tinyurl.com/3zmfwcfn',
+                                         description: 'Tesla Short Description', range: 600 } }.to_json,
+                       headers: headers
       expect(response).to have_http_status(:created)
     end
 
