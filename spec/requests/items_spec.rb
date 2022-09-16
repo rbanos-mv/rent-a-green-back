@@ -1,7 +1,7 @@
 require 'rails_helper'
 require_relative '../shared_file'
 
-RSpec.describe 'Items Controller', :type => :request do
+RSpec.describe 'Items Controller', type: :request do
   include_context 'common_context'
 
   describe 'GET paths' do
@@ -39,7 +39,9 @@ RSpec.describe 'Items Controller', :type => :request do
     end
 
     it 'creates a new item' do
-      post items_path, params: { item: { name: 'TESLA', photo: 'https://www.bmw.com/content/dam/bmw/common/all-models/i4/2021/navigation/bmw-i4-2021-model-card.png', description: 'The BMW i4 is a four-door, five-seat, all-electric fastback sedan that will be produced by BMW in Munich, Germany, and will be available in the United States, Canada, and Europe.', range: 600 } }.to_json, headers: headers
+      post items_path,
+           params: { item: { name: 'TESLA', photo: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tesla-model-s-2017-1600-09-1600864651.jpg',
+                             range: 600 } }.to_json, headers: headers
       expect(response).to have_http_status(:created)
     end
 
