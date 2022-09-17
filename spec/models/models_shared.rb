@@ -10,5 +10,4 @@ shared_context 'common_context' do
     Item.destroy_all
     User.destroy_all
   end
-
 end
