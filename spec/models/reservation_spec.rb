@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../shared_file'
+require_relative './models_shared'
 
 RSpec.describe Reservation, type: :model do
   include_context 'common_context'

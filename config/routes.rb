@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :create]
   resources :reservations, only: %i[create index show]
 
-  post '/items/:id/toggle_active', to: 'items#toggle_active'
+  post '/items/:id/toggle_active', to: 'items#toggle_active', as: 'toggle_active_item'
   
 end
