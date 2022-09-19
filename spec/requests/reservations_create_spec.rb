@@ -16,7 +16,7 @@ RSpec.describe 'Reservations Create', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it 'Reservations create: returns message of successful creation' do
+    it 'Reservations create: returns status 201 (successful creation)' do
       post reservations_path, params: {
         reservation: {
           city: 'Orlando',
@@ -24,20 +24,18 @@ RSpec.describe 'Reservations Create', type: :request do
           item: 'BMW i4'
         }
       }
-      response_json = JSON.parse(response.body)
-      expect(response_json['message']).to eq('Reservation created successfully!')
+      expect(response).to have_http_status(:created)
     end
 
-    it 'Reservations create: returns message of creation failure' do
+    it 'Reservations create: returns status 422 (creation failure)' do
       post reservations_path, params: {
         reservation: {
           city: 'Orlando',
           date: '2022/12/12',
-          item: 'ITEM NO EXISTE'
+          item: 'ITEM NO EXISTENTE'
         }
       }
-      response_json = JSON.parse(response.body)
-      expect(response_json['message']).to eq('Reservation is not valid.')
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end

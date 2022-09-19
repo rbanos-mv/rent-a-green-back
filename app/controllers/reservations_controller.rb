@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     if new_reserv.save
       render json: new_reserv, status: :created
     else
-      render json: @item.errors, status: :unprocessable_entity
+      render json: new_reserv.errors, status: :unprocessable_entity
     end
   end
 
