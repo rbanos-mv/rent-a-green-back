@@ -1,8 +1,9 @@
 require 'rails_helper'
-require_relative './models_shared'
+require_relative '../shared_file'
 
 RSpec.describe Reservation, type: :model do
-  include_context 'common_context'
+  include_context 'model_context'
+
   it 'New Reservation is valid' do
     new_res = Reservation.new(city: 'Boston', date: '2022/02/22', user: User.first, item: Item.first)
     expect(new_res).to be_valid

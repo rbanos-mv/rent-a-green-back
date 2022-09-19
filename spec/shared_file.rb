@@ -1,6 +1,6 @@
 require 'devise/jwt/test_helpers'
 
-shared_context 'common_context' do
+shared_context 'model_context' do
   let!(:user) { User.order(:id).first }
 
   let(:headers) do
@@ -18,6 +18,10 @@ shared_context 'common_context' do
     Item.destroy_all
     User.destroy_all
   end
+end
+
+shared_context 'common_context' do
+  include_context 'model_context'
 
   before(:each) do
     login_as(user)
