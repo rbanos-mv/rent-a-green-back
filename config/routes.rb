@@ -5,15 +5,19 @@ Rails.application.routes.draw do
   # root 'articles#index'
 
   devise_for :users,
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup'
+             },
              controllers: {
                sessions: 'users/sessions',
                registrations: 'users/registrations'
              }
 
   get '/users/current', to: 'users#current'
-  resources :items, only: [:index, :show, :create]
+  resources :items, only: %i[index show create]
   resources :reservations, only: %i[create index show]
 
   post '/items/:id/toggle_active', to: 'items#toggle_active', as: 'toggle_active_item'
-  
 end

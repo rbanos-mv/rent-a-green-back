@@ -1,19 +1,19 @@
 
-POST http://localhost:3001/users
+POST http://localhost:3001/users/signup
 Content-Type: application/json
 
-{ "user": { "name": "Aldo", "email": "myemail@email.com", "password": "mypassword" } }
+{ "user": { "name": "Aldo", "email": "aldo@mail.com", "password": "valido" } }
 
 ###
-POST http://localhost:3001/users/sign_in
+POST http://localhost:3001/users/login
 Content-Type: application/json
 
-{ "user": { "email": "myemail@email.com", "password": "mypassword" } }
+{ "user": { "email": "aldo@mail.com", "password": "valido" } }
 
 ###
-DELETE http://localhost:3001/users/sign_out
+DELETE http://localhost:3001/users/logout
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzMxNjgwLCJleHAiOjE2NjQ2Mjc2ODAsImp0aSI6IjdkODVkZWI3LWQ5ZWItNGE1NC1hNmUxLWMyZGViODQ0ODBiMSJ9.s7ag6jE4u8v7OCgKlpUz-PT4muvmdQuK6Nuo8K37QS0
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzNTQ5MjI5LCJleHAiOjE2NjQ4NDUyMjksImp0aSI6IjU3MGQyY2M2LWVlMjgtNDA5Zi05ZDFiLTIxMjFiMTc4YjkwZiJ9.67MBwm8RWRSJX-0XBHWO14yHxP0l37qSrEfDg6KZe2s
 
 ###
 

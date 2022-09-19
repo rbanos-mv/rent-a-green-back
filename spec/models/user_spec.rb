@@ -1,8 +1,9 @@
 require 'rails_helper'
-require_relative './models_shared'
+require_relative '../shared_file'
 
 RSpec.describe User, type: :model do
-  include_context 'common_context'
+  include_context 'model_context'
+
   describe 'name must not be blank:' do
     context 'when is nil' do
       before { user.name = nil }
