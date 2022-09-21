@@ -15,6 +15,12 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = current_user.reservations
-    render json: @reservations
+    reservations_with_car_names = []
+    @reservations.includes([:item]).each_with_index do |reservation, i|
+      reservations_with_car_names[i] = JSON.parse(reservation.to_json)
+      reservations_with_car_names[i][:carname] = reservation.item.name
+     end
+    p  reservations_with_car_names
+    render json: reservations_with_car_names
   end
 end

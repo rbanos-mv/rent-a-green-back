@@ -43,13 +43,13 @@ Content-Type: application/json
 
 GET http://localhost:3001/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzYzNjc0LCJleHAiOjE2NjQ2NTk2NzQsImp0aSI6IjQ4ZmQ4MzBmLTU4YzgtNDE4NC04OWI0LWI0MmUyODJhM2Y0ZiJ9.VM3x7iVgR2LDH6cdYlcK5yrcynKK3gCwm4Y5FuIeNXo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzNjIwNzYxLCJleHAiOjE2NjQ5MTY3NjEsImp0aSI6IjA2MDA1OTBiLWJlNGEtNDdiYi04Mzk1LTJkY2I4MDJkMTlkZiJ9.9pR-V1pVzTHrSVM_I3QKqRJAcHQS1h2bIYkfrGGtrA4
 
 ###
 
 POST http://localhost:3001/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzMzYzNjc0LCJleHAiOjE2NjQ2NTk2NzQsImp0aSI6IjQ4ZmQ4MzBmLTU4YzgtNDE4NC04OWI0LWI0MmUyODJhM2Y0ZiJ9.VM3x7iVgR2LDH6cdYlcK5yrcynKK3gCwm4Y5FuIeNXo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYzNjIwNzYxLCJleHAiOjE2NjQ5MTY3NjEsImp0aSI6IjA2MDA1OTBiLWJlNGEtNDdiYi04Mzk1LTJkY2I4MDJkMTlkZiJ9.9pR-V1pVzTHrSVM_I3QKqRJAcHQS1h2bIYkfrGGtrA4
 
 { "reservation": { "city": "Los Angeles", "date": "2023/03/30", "item": "BMW i4" } }
 
