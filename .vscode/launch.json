@@ -15,14 +15,14 @@
       "name": "RSpec - active spec file only",
       "type": "Ruby",
       "request": "launch",
-      "program": "rspec",
+      "program": "${workspaceRoot}/bin/rspec",
       "args": ["-I", "${workspaceRoot}", "${file}"]
     },
     {
       "name": "RSpec - all tests",
       "type": "Ruby",
       "request": "launch",
-      "program": "rspec",
+      "program": "${workspaceRoot}/bin/rspec",
       "args": []
     }
   ]
