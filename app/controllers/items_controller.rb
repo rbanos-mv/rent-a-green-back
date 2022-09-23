@@ -22,6 +22,23 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.active = false
+
+    if @item.save
+      render json: {
+        status: 200,
+        message: 'deleted successfully'
+      }, status: :ok
+    else
+      render json: {
+        status: 404,
+        message: 'not found'
+      }, status: :unauthorized
+    end
+  end
+
   def toggle_active
     @item = Item.find(params[:id])
     @item.toggle!(:active)
