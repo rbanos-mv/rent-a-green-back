@@ -1,8 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Rent-A-Green
 
-> Description the project.
+> This application allow users to book an appointment to test an electric car. The homepage is a showcase of the cars. You can also add new cars, view the details of a car, and book an appointment for renting a car, among other features.
+
+This back-end API is complemented by the [front-end](https://github.com/alexpuente0/final-capstone-frontend)
 
 ## Built With
 
@@ -75,17 +77,23 @@ rspec
 
 ## Authors
 
-👤 **[YOUR-NAME]**
+👤 **Roberto A. Baños Alvarez**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@rbanos-mv](https://github.com/rbanos-mv)
+- Twitter: [@RobertoBanosMV](https://twitter.com/RobertoBanosMV)
+- LinkedIn: [Roberto A Baños Alvarez](https://linkedin.com/in/roberto-a-baños-alvarez-500766234)
 
-👤 **Author2**
+👤 **Alejandro Puente**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@alexpuente0](https://github.com/alexpuente0)
+- Twitter: [@zero_rock](https://twitter.com/zero_rock)
+- LinkedIn: [Alejandro Puente](https://www.linkedin.com/in/alex-puente-farias/)
+
+👤 **Aldo Colombo**
+
+- GitHub: [@acolombo1](https://github.com/acolombo1)
+- Twitter: [@aldocolombo](https://twitter.com/aldocolombo)
+- LinkedIn: [Aldo Colombo](https://www.linkedin.com/in/aldo-colombo-2156009)
 
 ## 🤝 Contributing
 
