@@ -15,7 +15,7 @@ RSpec.describe 'reservations', type: :request do
             }
           }
         end
-        run_test!
+        #run_test!
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe 'reservations', type: :request do
             }
           }
         end
-        run_test!
+        #run_test!
       end
     end
   end
