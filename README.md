@@ -6,12 +6,18 @@
 
 This back-end API is complemented by the [front-end](https://github.com/alexpuente0/final-capstone-frontend)
 
+![image](https://user-images.githubusercontent.com/100373071/192989439-7b28aeab-661a-403d-b4bb-02d14fef39ef.png)
+
 ## Built With
 
 - Ruby on Rails
 - PostgreSQL
 - devise / devise-jwt - for authentication
 - cancancan - for authorization
+
+## Live Demo
+
+[Live API documentation](https://rent-a-green.herokuapp.com)
 
 ### Getting Started
 
@@ -65,7 +71,7 @@ rails db:reset
 rails server
 ```
 
-- Open your web browser at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+- Open your web browser at [http://127.0.0.1:3001/](http://127.0.0.1:3001/)
 
 ### Testing
 
