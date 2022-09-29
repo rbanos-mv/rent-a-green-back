@@ -19,6 +19,19 @@ This back-end API is complemented by the [front-end](https://github.com/alexpuen
 
 [Live API documentation](https://rent-a-green.herokuapp.com)
 
+### Kanban Board
+[Kanban board link](https://github.com/users/alexpuente0/projects/4).
+
+#### Initial Kanban board screenshot:
+![image](https://user-images.githubusercontent.com/99830261/190246424-1644dd8b-a0c9-45d5-b794-06fa6666a8e4.png)
+
+#### Final number of team members:
+
+We are 3 people on the team:
+@rbanos-mv
+@acolombo1
+@alexpuente0
+
 ### Getting Started
 
 To get a local copy up and running follow these simple steps:
