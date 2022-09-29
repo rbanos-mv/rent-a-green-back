@@ -1,6 +1,12 @@
 require 'swagger_helper'
 
 RSpec.describe 'users', type: :request do
+  after(:all) do
+    Reservation.destroy_all
+    Item.destroy_all
+    User.destroy_all
+  end
+
   path '/users/signup' do
     post('new registration') do
       tags 'Users'
@@ -22,14 +28,19 @@ RSpec.describe 'users', type: :request do
       }
 
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
+        let(:user) { { user: attributes_for(:user) } }
+        example 'application/json', :successfull_request, {
+          code: 201,
+          data: {
+            message: 'Signed up succesfully!',
+            user: {
+              id: 1,
+              name: 'string',
+              email: 'user@mail.com'
             }
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
   end
@@ -49,19 +60,25 @@ RSpec.describe 'users', type: :request do
             },
             required: %w[email password]
           }
-        },
-        required: %w[user]
+        }
       }
 
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
+        let(:usr) { create(:user) }
+        let(:user) { { user: { email: usr.email, password: usr.password } } }
+
+        example 'application/json', :successfull_login, {
+          code: 200,
+          data: {
+            user: {
+              id: 1,
+              name: 'User 1',
+              email: 'user@mail.com'
+            },
+            message: 'Logged in successfully.'
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
   end
@@ -71,15 +88,15 @@ RSpec.describe 'users', type: :request do
       tags 'Users'
       security [bearerAuth: []]
       response(200, 'successful') do
-        let(:Authorization) { "Bearer #{token_for(user)}" }
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
+        let(:user) { create(:user) }
+        let(:Authorization) { generate_jwt_token_for(user) }
+        example 'application/json', :succesful_logout, {
+          code: 200,
+          data: {
+            message: 'logged out successfully'
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
   end

@@ -1,18 +1,38 @@
 require 'swagger_helper'
 
 RSpec.describe 'items', type: :request do
+  after(:all) do
+    Reservation.destroy_all
+    Item.destroy_all
+    User.destroy_all
+  end
+
+  let(:user) { create(:user) }
+
   path '/items' do
     get('list items') do
       tags 'Items'
-      response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
+      produces 'application/json'
+
+      response(200, 'Successful') do
+        before { create_list(:item, 1) }
+        example 'application/json', :successful, {
+          code: 200,
+          data: [
+            {
+              id: '1',
+              type: 'item',
+              attributes: {
+                id: 1,
+                name: 'Item 100',
+                description: 'description 100',
+                range: '100 mi',
+                photo: 'photo1_url'
+              }
             }
-          }
-        end
-        # run_test!
+          ]
+        }
+        run_test!
       end
     end
 
@@ -31,16 +51,20 @@ RSpec.describe 'items', type: :request do
       }
       security [bearerAuth: []]
 
-      response(200, 'successful') do
-        let(:Authorization) { "Bearer #{token_for(user)}" }
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
+      response(201, 'successful') do
+        let(:Authorization) { generate_jwt_token_for(user) }
+        let(:item) { attributes_for(:item) }
+        example 'application/json', :successful, {
+          code: 201,
+          data: {
+            id: 6,
+            name: "This is the item's name",
+            description: 'This is the description',
+            range: '100 mi',
+            photo: 'http://photo_url'
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
   end
@@ -51,14 +75,18 @@ RSpec.describe 'items', type: :request do
     get('show item') do
       tags 'Items'
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
+        let(:id) { create(:item).id }
+        example 'application/json', :successful, {
+          code: 200,
+          data: {
+            id: 6,
+            name: "This is the item's name",
+            description: 'This is the description',
+            range: '100 mi',
+            photo: 'http://photo_url'
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
 
@@ -68,17 +96,15 @@ RSpec.describe 'items', type: :request do
       parameter name: :id, in: :path, type: :string, description: 'id'
       security [bearerAuth: []]
       response(200, 'successful') do
-        let(:Authorization) { "Bearer #{token_for(user)}" }
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
+        let(:Authorization) { generate_jwt_token_for(user) }
+        let(:id) { create(:item).id }
+        example 'application/json', :successful, {
+          code: 200,
+          data: {
+            message: 'deleted successfully'
           }
-        end
-        # run_test!
+        }
+        run_test!
       end
     end
   end

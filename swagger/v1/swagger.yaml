@@ -11,7 +11,22 @@ paths:
       - Items
       responses:
         '200':
-          description: successful
+          description: Successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 200
+                    data:
+                    - id: '1'
+                      type: item
+                      attributes:
+                        id: 1
+                        name: Item 100
+                        description: description 100
+                        range: 100 mi
+                        photo: photo1_url
     post:
       summary: create item
       tags:
@@ -20,8 +35,20 @@ paths:
       security:
       - bearerAuth: []
       responses:
-        '200':
+        '201':
           description: successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 201
+                    data:
+                      id: 6
+                      name: This is the item's name
+                      description: This is the description
+                      range: 100 mi
+                      photo: http://photo_url
       requestBody:
         content:
           application/json:
@@ -56,6 +83,18 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 200
+                    data:
+                      id: 6
+                      name: This is the item's name
+                      description: This is the description
+                      range: 100 mi
+                      photo: http://photo_url
     delete:
       summary: delete item
       tags:
@@ -72,6 +111,14 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 200
+                    data:
+                      message: deleted successfully
   "/reservations":
     get:
       summary: list reservations
@@ -82,6 +129,21 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 200
+                    data:
+                    - id: '1'
+                      type: reservation
+                      attributes:
+                        id: 1
+                        user_id: 1
+                        item_id: 1
+                        date: '2022-09-21'
+                        city: Medellin
     post:
       summary: create reservation
       tags:
@@ -90,8 +152,19 @@ paths:
       security:
       - bearerAuth: []
       responses:
-        '200':
+        '201':
           description: successful
+          content:
+            application/json:
+              examples:
+                successful:
+                  value:
+                    code: 201
+                    data:
+                      id: 6
+                      city: City
+                      date: '2022-01-01'
+                      item: Item 1
       requestBody:
         content:
           application/json:
@@ -103,13 +176,12 @@ paths:
                   format: date
                 city:
                   type: string
-                vehicle_id:
-                  type: integer
+                item:
+                  type: string
               required:
               - date
               - city
-              - vehicle_id
-              - user_id
+              - item
   "/users/signup":
     post:
       summary: new registration
@@ -119,6 +191,18 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                successfull_request:
+                  value:
+                    code: 201
+                    data:
+                      message: Signed up succesfully!
+                      user:
+                        id: 1
+                        name: string
+                        email: user@mail.com
       requestBody:
         content:
           application/json:
@@ -152,6 +236,18 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                successfull_login:
+                  value:
+                    code: 200
+                    data:
+                      user:
+                        id: 1
+                        name: User 1
+                        email: user@mail.com
+                      message: Logged in successfully.
       requestBody:
         content:
           application/json:
@@ -171,8 +267,6 @@ paths:
                   required:
                   - email
                   - password
-              required:
-              - user
   "/users/logout":
     delete:
       summary: delete session
@@ -183,6 +277,14 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              examples:
+                succesful_logout:
+                  value:
+                    code: 200
+                    data:
+                      message: logged out successfully
 servers:
 - url: https://{herokuapp}
   variables:
@@ -198,5 +300,3 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-security:
-  bearerAuth: []
