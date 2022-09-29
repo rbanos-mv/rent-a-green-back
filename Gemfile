@@ -74,6 +74,7 @@ end
 
 group :test do
   # Testing framework
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rswag-specs'
