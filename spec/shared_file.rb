@@ -1,13 +1,7 @@
-require 'devise/jwt/test_helpers'
-
 shared_context 'model_context' do
   let!(:user) { User.order(:id).first }
 
-  let(:headers) do
-    headrs = { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
-    # This will add a valid token for `user` in the `Authorization` header
-    Devise::JWT::TestHelpers.auth_headers(headrs, user)
-  end
+  let(:headers) { headers_jwt_token_for(user) }
 
   before(:all) do
     Rails.application.load_seed
